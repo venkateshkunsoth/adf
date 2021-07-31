@@ -1,0 +1,40 @@
+{
+	"name": "blogsource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "EMPDETAILS.txt",
+				"container": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "EMPID",
+				"type": "String"
+			},
+			{
+				"name": "EMPNAME",
+				"type": "String"
+			},
+			{
+				"name": "EMPSALARY",
+				"type": "String"
+			},
+			{
+				"name": "EMPLOCATION",
+				"type": "String"
+			}
+		]
+	}
+}
