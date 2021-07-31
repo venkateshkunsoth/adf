@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "population_by_age.tsv.gz",
+				"fileName": "SCD1.csv",
 				"container": "input"
 			},
 			"columnDelimiter": ",",
