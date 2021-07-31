@@ -1,0 +1,9 @@
+{
+	"name": "adfvenkutest",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "efcfdd08-b915-43b3-8eef-ba847a4a34f2",
+		"tenantId": "c010db4c-8947-41ea-b2dc-80b65c8e0222"
+	}
+}
