@@ -20,15 +20,19 @@
 		},
 		"schema": [
 			{
+				"name": "id",
 				"type": "String"
 			},
 			{
+				"name": "name",
 				"type": "String"
 			},
 			{
+				"name": "CITY",
 				"type": "String"
 			},
 			{
+				"name": "LAPTOP",
 				"type": "String"
 			}
 		]
