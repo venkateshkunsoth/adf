@@ -1,0 +1,32 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_ouput",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "AlterRow1"
+				}
+			],
+			"script": "source(output(\n\t\tid as string,\n\t\tname as string,\n\t\tCITY as string,\n\t\tLAPTOP as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 alterRow(deleteIf(isNull(LAPTOP)),\n\tpartitionBy('hash', 1)) ~> AlterRow1\nAlterRow1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['TTTTTT'],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tid,\n\t\tname,\n\t\tCITY,\n\t\tLAPTOP\n\t),\n\tpartitionBy('hash', 1)) ~> sink1"
+		}
+	}
+}
