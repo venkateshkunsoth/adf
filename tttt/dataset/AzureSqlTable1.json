@@ -1,0 +1,42 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "customer_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "customer_name",
+				"type": "char"
+			},
+			{
+				"name": "address",
+				"type": "char"
+			},
+			{
+				"name": "city",
+				"type": "char"
+			},
+			{
+				"name": "state",
+				"type": "char"
+			},
+			{
+				"name": "zip_code",
+				"type": "char"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "customers"
+		}
+	}
+}
