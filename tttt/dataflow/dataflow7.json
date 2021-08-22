@@ -1,0 +1,31 @@
+{
+	"name": "dataflow7",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable5",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable2",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Exists1"
+				}
+			],
+			"script": "source(output(\n\t\tID as integer,\n\t\tname as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: true,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table',\n\tpartitionBy('hash', 1)) ~> source1\nsource(output(\n\t\tID as integer,\n\t\tname as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source2\nsource2, source1 exists(source2@ID == source1@ID,\n\tnegate:true,\n\tpartitionBy('hash', 1),\n\tbroadcast: 'auto')~> Exists1"
+		}
+	}
+}
