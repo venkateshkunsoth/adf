@@ -1,5 +1,13 @@
 {
 	"name": "adfvenkutest",
+	"properties": {
+		"globalParameters": {
+			"yhjh": {
+				"type": "string",
+				"value": "hjh"
+			}
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
